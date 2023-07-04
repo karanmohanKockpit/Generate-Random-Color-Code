@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Random Color Code</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .colorContainer {
+            max-width: 600px;
+            padding: 1rem;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 0.5rem;
+            border: none;
+        }
+
+        .colorcode {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="colorContainer">
+        <button type="button" id="genColor" onclick="generateColorCode()">Click to generate color</button>
+        <p class="colorcode" id="colorcode">#ffffff</p>
+    </div>
+    <script>
+        let colorcode = document.getElementById("colorcode");
+        let genColor = document.getElementById("genColor");
+        let code = '123456789ABCDEF';
+
+        function generateColorCode() {
+            let hex = "#";
+            for (let i = 0; i < 6; i++) {
+                // const index = Math.floor((Math.random() * code.length));
+                hex += code[Math.floor((Math.random() * code.length))];
+            }
+            colorcode.innerHTML = hex;
+            colorcode.style.color = hex
+            document.body.style.background = hex;
+        }
+
+    </script>
+</body>
+
+</html>
